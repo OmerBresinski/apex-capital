@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
@@ -25,24 +26,27 @@ const companies = [
 
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const pathname = usePathname();
 
   const filtered = activeCategory === "All"
     ? companies
     : companies.filter((c) => c.category === activeCategory);
 
   return (
-    <main className="bg-[#f5f2eb]">
+    <main className="bg-[#0a0a0a]">
       <Navigation />
 
       {/* Hero */}
       <section className="relative pt-32 pb-16 px-6 overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-50" />
+        <div className="absolute inset-0 grid-pattern-dark opacity-50" />
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#c9a227]/10 rounded-full blur-[150px]" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
+            key={pathname}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
             <div className="flex items-center gap-4 mb-6">
@@ -52,10 +56,10 @@ export default function PortfolioPage() {
               </span>
             </div>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-              <span className="text-[#1a1a1a]">Our</span>{" "}
+              <span className="text-[#f5f2eb]">Our</span>{" "}
               <span className="italic text-[#c9a227]">portfolio</span>
             </h1>
-            <p className="text-xl text-[#4a4a4a] font-body font-light max-w-xl">
+            <p className="text-xl text-[#f5f2eb]/70 font-body font-light max-w-xl">
               We partner with exceptional founders building foundational
               technology for the decentralized future.
             </p>
@@ -63,9 +67,10 @@ export default function PortfolioPage() {
 
           {/* Stats */}
           <motion.div
+            key={`stats-${pathname}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="flex flex-wrap gap-12 mt-12"
           >
             {[
@@ -77,11 +82,11 @@ export default function PortfolioPage() {
                 key={stat.label}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 + i * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                 className="border-l-2 border-[#c9a227] pl-4"
               >
-                <div className="display-number text-4xl text-[#1a1a1a]">{stat.value}</div>
-                <div className="text-[#6b6b6b] font-body text-sm uppercase tracking-wider">{stat.label}</div>
+                <div className="display-number text-4xl text-[#f5f2eb]">{stat.value}</div>
+                <div className="text-[#f5f2eb]/50 font-body text-sm uppercase tracking-wider">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -98,8 +103,8 @@ export default function PortfolioPage() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-6 py-3 text-sm font-body transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-[#c9a227] text-[#1a1a1a]"
-                    : "border border-[#1a1a1a]/20 text-[#4a4a4a] hover:border-[#c9a227] hover:text-[#c9a227]"
+                    ? "bg-[#c9a227] text-[#0a0a0a]"
+                    : "border border-[#f5f2eb]/20 text-[#f5f2eb]/70 hover:border-[#c9a227] hover:text-[#c9a227]"
                 }`}
               >
                 {cat}
@@ -112,17 +117,17 @@ export default function PortfolioPage() {
       {/* Grid */}
       <section className="px-6 pb-32">
         <div className="max-w-7xl mx-auto">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#1a1a1a]/10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#f5f2eb]/10">
             {filtered.map((company, i) => (
               <motion.div
-                key={company.name}
+                key={`${pathname}-company-${company.name}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.03 }}
-                className="group relative bg-[#f5f2eb] p-8 cursor-pointer overflow-hidden border-b border-r border-[#1a1a1a]/5 group-hover:border-[#c9a227]/20 transition-colors duration-500"
+                transition={{ duration: 0.4, delay: i * 0.03 }}
+                className="group relative bg-[#0a0a0a] p-8 cursor-pointer overflow-hidden"
               >
                 {/* Hover gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#c9a227]/10 to-[#c9a227]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#c9a227]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Corner accent */}
                 <div className="absolute top-0 left-0 w-12 h-12">
@@ -132,7 +137,7 @@ export default function PortfolioPage() {
 
                 <div className="relative z-10">
                   {/* Number */}
-                  <span className="display-number text-6xl text-[#1a1a1a]/5 absolute -top-2 -left-2 group-hover:text-[#c9a227]/30 transition-colors duration-500">
+                  <span className="display-number text-6xl text-[#f5f2eb]/5 absolute -top-2 -left-2 group-hover:text-[#c9a227]/30 transition-colors duration-500">
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
@@ -141,12 +146,12 @@ export default function PortfolioPage() {
                       <span className="text-[10px] text-[#c9a227] font-body uppercase tracking-[0.2em]">
                         {company.category}
                       </span>
-                      <span className="text-[10px] text-[#6b6b6b] font-body px-2 py-1 border border-[#1a1a1a]/10 transition-colors duration-300">
+                      <span className="text-[10px] text-[#f5f2eb]/50 font-body px-2 py-1 border border-[#f5f2eb]/10 transition-colors duration-300">
                         {company.status}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-2xl text-[#1a1a1a] mb-2 group-hover:text-[#c9a227] transition-colors duration-300">
+                    <h3 className="font-display text-2xl text-[#f5f2eb] mb-2 group-hover:text-[#c9a227] transition-colors duration-300">
                       {company.name}
                     </h3>
 
@@ -179,28 +184,29 @@ export default function PortfolioPage() {
 
       {/* CTA */}
       <section className="relative py-32 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[#ebe7dd]" />
-        <div className="absolute inset-0 diagonal-lines" />
+        <div className="absolute inset-0 bg-[#141414]" />
+        <div className="absolute inset-0 diagonal-lines-dark" />
         <div className="absolute left-1/2 -translate-x-1/2 top-0 w-96 h-96 bg-[#c9a227]/10 rounded-full blur-[150px]" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <motion.div
+            key={`${pathname}-cta`}
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
             <h2 className="font-display text-4xl md:text-5xl leading-[1.1] mb-6">
-              <span className="text-[#1a1a1a]">Building something</span>{" "}
+              <span className="text-[#f5f2eb]">Building something</span>{" "}
               <span className="italic text-[#c9a227]">exceptional</span>
-              <span className="text-[#1a1a1a]">?</span>
+              <span className="text-[#f5f2eb]">?</span>
             </h2>
-            <p className="text-[#4a4a4a] font-body font-light mb-10 max-w-lg mx-auto">
+            <p className="text-[#f5f2eb]/70 font-body font-light mb-10 max-w-lg mx-auto">
               We&apos;re always looking for visionary founders pushing the boundaries
               of what&apos;s possible in crypto.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#c9a227] text-[#1a1a1a] font-body text-sm font-medium tracking-wide hover:bg-[#e3bc4a] transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#c9a227] text-[#0a0a0a] font-body text-sm font-medium tracking-wide hover:bg-[#e3bc4a] transition-all duration-300"
             >
               Submit Your Pitch
               <svg

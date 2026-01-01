@@ -1,20 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Contact() {
+  const pathname = usePathname();
+
   return (
-    <section className="relative py-32 overflow-hidden">
-      {/* Background - warm cream */}
-      <div className="absolute inset-0 bg-[#ebe7dd]" />
-      <div className="absolute inset-0 grid-pattern" />
+    <section key={pathname} className="relative py-32 overflow-hidden">
+      {/* Background - dark */}
+      <div className="absolute inset-0 bg-[#141414]" />
+      <div className="absolute inset-0 grid-pattern-dark" />
 
       {/* Decorative glows */}
       <div className="absolute left-1/4 top-0 w-96 h-96 bg-[#c9a227]/10 rounded-full blur-[150px]" />
       <div className="absolute right-1/4 bottom-0 w-64 h-64 bg-[#c9a227]/8 rounded-full blur-[120px]" />
 
       {/* Large decorative number */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 display-number text-[20rem] text-[#1a1a1a]/[0.03] pointer-events-none select-none hidden lg:block">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 display-number text-[20rem] text-[#f5f2eb]/[0.03] pointer-events-none select-none hidden lg:block">
         &
       </div>
 
@@ -34,12 +37,12 @@ export default function Contact() {
           </div>
 
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-            <span className="text-[#1a1a1a]">Let&apos;s build the</span>
+            <span className="text-[#f5f2eb]">Let&apos;s build the</span>
             <br />
             <span className="italic text-[#c9a227]">future together</span>
           </h2>
 
-          <p className="text-lg text-[#4a4a4a] mb-12 font-body font-light max-w-2xl mx-auto">
+          <p className="text-lg text-[#f5f2eb]/70 mb-12 font-body font-light max-w-2xl mx-auto">
             Whether you&apos;re a founder with a bold vision or an LP seeking
             crypto exposure, we&apos;d love to hear from you.
           </p>
@@ -55,7 +58,7 @@ export default function Contact() {
         >
           <a
             href="mailto:pitch@apexcap.vc"
-            className="group relative px-10 py-5 bg-[#c9a227] text-[#1a1a1a] font-body text-sm font-medium tracking-wide hover:bg-[#e3bc4a] transition-all duration-300 overflow-hidden"
+            className="group relative px-10 py-5 bg-[#c9a227] text-[#0a0a0a] font-body text-sm font-medium tracking-wide hover:bg-[#e3bc4a] transition-all duration-300 overflow-hidden"
           >
             <span className="relative z-10 flex items-center justify-center gap-3">
               Pitch a Project
@@ -76,7 +79,7 @@ export default function Contact() {
           </a>
           <a
             href="mailto:invest@apexcap.vc"
-            className="group px-10 py-5 border border-[#1a1a1a]/20 text-[#1a1a1a] font-body text-sm tracking-wide hover:bg-[#1a1a1a] hover:text-[#f5f2eb] transition-all duration-300"
+            className="group px-10 py-5 border border-[#f5f2eb]/20 text-[#f5f2eb] font-body text-sm tracking-wide hover:bg-[#f5f2eb] hover:text-[#0a0a0a] transition-all duration-300"
           >
             <span className="flex items-center justify-center gap-3">
               LP Inquiries
@@ -107,27 +110,27 @@ export default function Contact() {
         >
           <a
             href="#"
-            className="group flex items-center gap-2 text-[#6b6b6b] hover:text-[#c9a227] transition-colors duration-300"
+            className="group flex items-center gap-2 text-[#f5f2eb]/50 hover:text-[#c9a227] transition-colors duration-300"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
             <span className="font-body text-sm link-hover">Twitter</span>
           </a>
-          <div className="w-[1px] h-4 bg-[#1a1a1a]/10 transform rotate-[20deg]" />
+          <div className="w-[1px] h-4 bg-[#f5f2eb]/10 transform rotate-[20deg]" />
           <a
             href="#"
-            className="group flex items-center gap-2 text-[#6b6b6b] hover:text-[#c9a227] transition-colors duration-300"
+            className="group flex items-center gap-2 text-[#f5f2eb]/50 hover:text-[#c9a227] transition-colors duration-300"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
             <span className="font-body text-sm link-hover">LinkedIn</span>
           </a>
-          <div className="w-[1px] h-4 bg-[#1a1a1a]/10 transform rotate-[20deg]" />
+          <div className="w-[1px] h-4 bg-[#f5f2eb]/10 transform rotate-[20deg]" />
           <a
             href="#"
-            className="group flex items-center gap-2 text-[#6b6b6b] hover:text-[#c9a227] transition-colors duration-300"
+            className="group flex items-center gap-2 text-[#f5f2eb]/50 hover:text-[#c9a227] transition-colors duration-300"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />

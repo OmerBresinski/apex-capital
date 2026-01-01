@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  /* Editorial Luxe - Rich Light Mode Palette */
-  --ivory: #f5f2eb;
-  --ivory-warm: #ebe7dd;
-  --cream: #e5e1d6;
-
+  /* Obsidian & Amber - Dark Mode Palette */
+  --obsidian: #0a0a0a;
+  --obsidian-light: #141414;
   --charcoal: #1a1a1a;
   --charcoal-light: #2d2d2d;
-  --graphite: #3d3d3d;
 
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-muted: #6b6b6b;
+  --ivory: #f5f2eb;
+  --ivory-warm: #ebe7dd;
+
+  --text-primary: #f5f2eb;
+  --text-secondary: rgba(245, 242, 235, 0.7);
+  --text-muted: rgba(245, 242, 235, 0.5);
 
   --amber: #c9a227;
   --amber-light: #e3bc4a;
@@ -28,7 +28,7 @@
 }
 
 body {
-  background: var(--ivory);
+  background: var(--obsidian);
   color: var(--text-primary);
   font-family: var(--font-body), system-ui, sans-serif;
 }

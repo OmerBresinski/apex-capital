@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const featured = [
   {
@@ -43,14 +44,16 @@ const featured = [
 ];
 
 export default function Portfolio() {
+  const pathname = usePathname();
+
   return (
-    <section className="relative py-32 overflow-hidden">
-      {/* Background - warm ivory */}
-      <div className="absolute inset-0 bg-[#f5f2eb]" />
-      <div className="absolute inset-0 diagonal-lines" />
+    <section key={pathname} className="relative py-32 overflow-hidden">
+      {/* Background - dark */}
+      <div className="absolute inset-0 bg-[#0a0a0a]" />
+      <div className="absolute inset-0 grid-pattern-dark" />
 
       {/* Decorative */}
-      <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-[#c9a227]/8 to-transparent" />
+      <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-[#c9a227]/5 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
@@ -67,7 +70,7 @@ export default function Portfolio() {
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-              <span className="text-[#1a1a1a]">Selected</span>
+              <span className="text-[#f5f2eb]">Selected</span>
               <br />
               <span className="italic text-[#c9a227]">investments</span>
             </h2>
@@ -78,7 +81,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#6b6b6b] font-body text-sm max-w-sm mt-6 lg:mt-0"
+            className="text-[#f5f2eb]/50 font-body text-sm max-w-sm mt-6 lg:mt-0"
           >
             A selection of companies we&apos;re proud to back, from seed to
             growth stage.
@@ -86,7 +89,7 @@ export default function Portfolio() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#1a1a1a]/10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-[#f5f2eb]/10">
           {featured.map((company, i) => (
             <motion.div
               key={company.name}
@@ -94,20 +97,20 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group relative bg-[#f5f2eb] p-8 cursor-pointer overflow-hidden"
+              className="group relative bg-[#0a0a0a] p-8 cursor-pointer overflow-hidden"
             >
               {/* Hover gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a227]/10 to-[#c9a227]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#c9a227]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Corner accent */}
-              <div className="absolute top-0 left-0 w-12 h-12 transition-opacity duration-500">
+              <div className="absolute top-0 left-0 w-12 h-12">
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-[#c9a227] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute top-0 left-0 h-full w-[1px] bg-[#c9a227] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               <div className="relative z-10">
                 {/* Number */}
-                <span className="display-number text-6xl text-[#1a1a1a]/5 absolute -top-2 -left-2 group-hover:text-[#c9a227]/30 transition-colors duration-500">
+                <span className="display-number text-6xl text-[#f5f2eb]/5 absolute -top-2 -left-2 group-hover:text-[#c9a227]/20 transition-colors duration-500">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
@@ -116,16 +119,16 @@ export default function Portfolio() {
                     <span className="text-[10px] text-[#c9a227] font-body uppercase tracking-[0.2em]">
                       {company.category}
                     </span>
-                    <span className="text-[10px] text-[#6b6b6b] font-body transition-colors duration-300">
+                    <span className="text-[10px] text-[#f5f2eb]/40 font-body transition-colors duration-300">
                       {company.year}
                     </span>
                   </div>
 
-                  <h3 className="font-display text-2xl text-[#1a1a1a] mb-2 group-hover:text-[#c9a227] transition-colors duration-300">
+                  <h3 className="font-display text-2xl text-[#f5f2eb] mb-2 group-hover:text-[#c9a227] transition-colors duration-300">
                     {company.name}
                   </h3>
 
-                  <p className="text-sm text-[#6b6b6b] font-body transition-colors duration-300">
+                  <p className="text-sm text-[#f5f2eb]/50 font-body transition-colors duration-300">
                     {company.description}
                   </p>
 
@@ -163,7 +166,7 @@ export default function Portfolio() {
         >
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#c9a227] text-[#1a1a1a] font-body text-sm tracking-wide hover:bg-[#e3bc4a] transition-all duration-300"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#c9a227] text-[#0a0a0a] font-body text-sm tracking-wide hover:bg-[#e3bc4a] transition-all duration-300"
           >
             View all investments
             <svg
