@@ -45,11 +45,11 @@ const focusAreas = [
 export default function Thesis() {
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#141414]" />
+      {/* Background - light mode */}
+      <div className="absolute inset-0 bg-[#f5f2eb]" />
 
       {/* Decorative amber line */}
-      <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#c9a227]/30 to-transparent" />
+      <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#c9a227]/40 to-transparent" />
 
       {/* Grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-60" />
@@ -71,12 +71,12 @@ export default function Thesis() {
             </div>
 
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-8">
-              <span className="text-[#f5f2eb]">Where we</span>
+              <span className="text-[#1a1a1a]">Where we</span>
               <br />
               <span className="italic text-[#c9a227]">deploy capital</span>
             </h2>
 
-            <p className="text-[#f5f2eb]/60 font-body font-light leading-relaxed mb-8 max-w-lg">
+            <p className="text-[#4a4a4a] font-body font-light leading-relaxed mb-8 max-w-lg">
               We invest where blockchain technology offers a 10x improvement
               over existing solutions. Our conviction in crypto&apos;s transformative
               potential guides every decision.
@@ -84,7 +84,7 @@ export default function Thesis() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 text-[#c9a227] font-body text-sm tracking-wide group"
+              className="inline-flex items-center gap-3 text-[#1a1a1a] font-body text-sm tracking-wide group hover:text-[#c9a227] transition-colors"
             >
               <span className="link-hover">Read our full thesis</span>
               <svg
@@ -117,7 +117,7 @@ export default function Thesis() {
               <div className="absolute top-0 left-0 h-full w-[1px] bg-gradient-to-b from-[#c9a227] to-transparent" />
             </div>
 
-            <div className="space-y-0">
+            <div className="space-y-0 bg-[#F6F2EB] p-8 border border-[#1a1a1a]/5">
               {focusAreas.map((area, i) => (
                 <motion.div
                   key={area.name}
@@ -125,11 +125,11 @@ export default function Thesis() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + i * 0.1 }}
-                  className="group relative py-8 border-b border-[#f5f2eb]/10 last:border-0"
+                  className="group relative py-6 border-b border-[#1a1a1a]/10 last:border-0"
                 >
                   <div className="flex items-start gap-6">
                     {/* Number */}
-                    <span className="display-number text-4xl text-[#f5f2eb]/10 group-hover:text-[#c9a227]/30 transition-colors duration-500">
+                    <span className="display-number text-4xl text-[#c9a227]/30 group-hover:text-[#c9a227]/60 transition-colors duration-500">
                       {String(i + 1).padStart(2, "0")}
                     </span>
 
@@ -139,11 +139,11 @@ export default function Thesis() {
                         <span className="text-[#c9a227] group-hover:text-[#e3bc4a] transition-colors duration-300">
                           {area.icon}
                         </span>
-                        <h3 className="font-display text-2xl text-[#f5f2eb] group-hover:text-[#c9a227] transition-colors duration-300">
+                        <h3 className="font-display text-2xl text-[#1a1a1a] group-hover:text-[#c9a227] transition-colors duration-300">
                           {area.name}
                         </h3>
                       </div>
-                      <p className="text-[#f5f2eb]/50 font-body text-sm pl-8">
+                      <p className="text-[#6b6b6b] font-body text-sm pl-8">
                         {area.description}
                       </p>
                     </div>

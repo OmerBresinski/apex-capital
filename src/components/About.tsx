@@ -6,12 +6,12 @@ import Link from "next/link";
 export default function About() {
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#141414]" />
-      <div className="absolute inset-0 grid-pattern" />
+      {/* Background - warm cream */}
+      <div className="absolute inset-0 bg-[#ebe7dd]" />
+      <div className="absolute inset-0 diagonal-lines" />
 
       {/* Decorative amber glow */}
-      <div className="absolute -left-40 top-1/2 w-80 h-80 bg-[#c9a227]/10 rounded-full blur-[120px]" />
+      <div className="absolute -left-40 top-1/2 w-80 h-80 bg-[#c9a227]/15 rounded-full blur-[120px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -31,12 +31,12 @@ export default function About() {
             </div>
 
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-8">
-              <span className="text-[#f5f2eb]">Conviction-driven</span>
+              <span className="text-[#1a1a1a]">Conviction-driven</span>
               <br />
               <span className="italic text-[#c9a227]">investing</span>
             </h2>
 
-            <p className="text-[#f5f2eb]/60 font-body font-light leading-relaxed mb-8 max-w-lg">
+            <p className="text-[#4a4a4a] font-body font-light leading-relaxed mb-8 max-w-lg">
               Since 2016, we&apos;ve partnered with visionary founders at the
               earliest stages, helping them build category-defining companies in
               blockchain and decentralized finance.
@@ -44,7 +44,7 @@ export default function About() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 text-[#c9a227] font-body text-sm tracking-wide group"
+              className="inline-flex items-center gap-3 text-[#1a1a1a] font-body text-sm tracking-wide group hover:text-[#c9a227] transition-colors"
             >
               <span className="link-hover">About our approach</span>
               <svg
@@ -77,7 +77,8 @@ export default function About() {
               <div className="absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-[#c9a227] to-transparent" />
             </div>
 
-            <div className="bg-[#0a0a0a] p-10 lg:p-14">
+            {/* Stats card - light with amber accents */}
+            <div className="bg-[#f5f2eb] p-10 lg:p-14 border border-[#1a1a1a]/10">
               {[
                 { value: "$2.4B", label: "Assets Under Management" },
                 { value: "85+", label: "Portfolio Companies" },
@@ -90,15 +91,15 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + i * 0.1 }}
                   className={`py-8 ${
-                    i !== 2 ? "border-b border-[#f5f2eb]/10" : ""
+                    i !== 2 ? "border-b border-[#1a1a1a]/10" : ""
                   }`}
                 >
                   <div className="flex items-baseline gap-4">
-                    <span className="display-number text-5xl lg:text-6xl text-[#f5f2eb]">
+                    <span className="display-number text-5xl lg:text-6xl text-[#1a1a1a]">
                       {stat.value}
                     </span>
-                    <div className="diagonal-sep hidden lg:block" />
-                    <span className="text-sm text-[#f5f2eb]/40 font-body uppercase tracking-wider">
+                    <span className="text-[#c9a227] text-2xl">/</span>
+                    <span className="text-sm text-[#6b6b6b] font-body uppercase tracking-wider">
                       {stat.label}
                     </span>
                   </div>

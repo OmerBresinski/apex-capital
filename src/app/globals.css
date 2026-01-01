@@ -1,19 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Obsidian & Amber - Dark Mode Palette */
-  --obsidian: #0a0a0a;
-  --obsidian-light: #141414;
-  --obsidian-lighter: #1a1a1a;
-
+  /* Editorial Luxe - Rich Light Mode Palette */
   --ivory: #f5f2eb;
-  --ivory-muted: #e8e4db;
+  --ivory-warm: #ebe7dd;
+  --cream: #e5e1d6;
+
+  --charcoal: #1a1a1a;
+  --charcoal-light: #2d2d2d;
+  --graphite: #3d3d3d;
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6b6b6b;
 
   --amber: #c9a227;
   --amber-light: #e3bc4a;
   --amber-dark: #a8871f;
+  --amber-deep: #8b7420;
 }
 
 @theme inline {
@@ -22,8 +28,8 @@
 }
 
 body {
-  background: var(--obsidian);
-  color: var(--ivory);
+  background: var(--ivory);
+  color: var(--text-primary);
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
@@ -44,22 +50,41 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* Subtle grid pattern */
+/* Subtle grid pattern - light mode */
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(245, 242, 235, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(245, 242, 235, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(26, 26, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
-/* Diagonal lines pattern */
+/* Grid pattern for dark sections */
+.grid-pattern-dark {
+  background-image:
+    linear-gradient(rgba(245, 242, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 242, 235, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Diagonal lines pattern - light mode */
 .diagonal-lines {
   background-image: repeating-linear-gradient(
     -45deg,
     transparent,
     transparent 40px,
-    rgba(245, 242, 235, 0.02) 40px,
-    rgba(245, 242, 235, 0.02) 41px
+    rgba(26, 26, 26, 0.03) 40px,
+    rgba(26, 26, 26, 0.03) 41px
+  );
+}
+
+/* Diagonal lines for dark sections */
+.diagonal-lines-dark {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(245, 242, 235, 0.03) 40px,
+    rgba(245, 242, 235, 0.03) 41px
   );
 }
 
@@ -68,7 +93,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.4;
+  opacity: 0.3;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   pointer-events: none;
 }
@@ -124,5 +149,11 @@ html {
 /* Selection color */
 ::selection {
   background: rgba(201, 162, 39, 0.3);
+  color: var(--text-primary);
+}
+
+/* Dark section text selection */
+.dark-section ::selection {
+  background: rgba(201, 162, 39, 0.4);
   color: var(--ivory);
 }

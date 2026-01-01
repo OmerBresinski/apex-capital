@@ -22,19 +22,19 @@ const team = [
   {
     name: "Elena Volkov",
     role: "Partner",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654982?auto=format&fit=crop&w=300&q=80",
   },
 ];
 
 export default function Team() {
   return (
     <section className="relative py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[#0a0a0a]" />
+      {/* Background - warm cream */}
+      <div className="absolute inset-0 bg-[#ebe7dd]" />
       <div className="absolute inset-0 diagonal-lines" />
 
       {/* Decorative glow */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#c9a227]/5 rounded-full blur-[150px]" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#c9a227]/10 rounded-full blur-[150px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
@@ -52,7 +52,7 @@ export default function Team() {
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1]">
-              <span className="text-[#f5f2eb]">The</span>
+              <span className="text-[#1a1a1a]">The</span>
               <br />
               <span className="italic text-[#c9a227]">team</span>
             </h2>
@@ -63,7 +63,7 @@ export default function Team() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#f5f2eb]/50 font-body text-sm max-w-sm mt-6 lg:mt-0"
+            className="text-[#6b6b6b] font-body text-sm max-w-sm mt-6 lg:mt-0"
           >
             Operators and investors with deep crypto expertise, backing the
             next generation of web3 founders.
@@ -81,14 +81,14 @@ export default function Team() {
               transition={{ delay: i * 0.1 }}
               className="group relative"
             >
-              <div className="relative bg-[#141414] p-6 overflow-hidden">
+              <div className="relative bg-[#f5f2eb] p-6 overflow-hidden border border-[#1a1a1a]/10 group-hover:border-[#c9a227]/30 transition-colors duration-500">
                 {/* Hover gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#c9a227]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#c9a227]/10 to-[#c9a227]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute top-0 right-0 w-full h-[1px] bg-[#c9a227]" />
-                  <div className="absolute top-0 right-0 h-full w-[1px] bg-[#c9a227]" />
+                <div className="absolute top-0 right-0 w-12 h-12">
+                  <div className="absolute top-0 right-0 w-full h-[1px] bg-[#c9a227] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-0 right-0 h-full w-[1px] bg-[#c9a227] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 <div className="relative z-10">
@@ -103,10 +103,10 @@ export default function Team() {
                     <div className="absolute inset-0 bg-[#c9a227]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
 
-                  <h3 className="font-display text-xl text-[#f5f2eb] mb-1 group-hover:text-[#c9a227] transition-colors duration-300">
+                  <h3 className="font-display text-xl text-[#1a1a1a] mb-1 group-hover:text-[#c9a227] transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-[#f5f2eb]/50 font-body text-sm">
+                  <p className="text-[#6b6b6b] font-body text-sm transition-colors duration-300">
                     {member.role}
                   </p>
 
@@ -114,7 +114,7 @@ export default function Team() {
                   <div className="mt-6 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <a
                       href="#"
-                      className="text-[#f5f2eb]/40 hover:text-[#c9a227] transition-colors"
+                      className="text-[#6b6b6b] hover:text-[#c9a227] transition-colors"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -122,7 +122,7 @@ export default function Team() {
                     </a>
                     <a
                       href="#"
-                      className="text-[#f5f2eb]/40 hover:text-[#c9a227] transition-colors"
+                      className="text-[#6b6b6b] hover:text-[#c9a227] transition-colors"
                     >
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -143,7 +143,7 @@ export default function Team() {
         >
           <Link
             href="/team"
-            className="inline-flex items-center gap-3 text-[#c9a227] font-body text-sm tracking-wide group"
+            className="inline-flex items-center gap-3 text-[#1a1a1a] font-body text-sm tracking-wide group hover:text-[#c9a227] transition-colors"
           >
             <span className="link-hover">Meet the full team</span>
             <svg

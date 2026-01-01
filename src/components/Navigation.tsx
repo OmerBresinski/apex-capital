@@ -26,7 +26,7 @@ export default function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[#0a0a0a]/95 backdrop-blur-md" : "bg-transparent"
+        scrolled ? "bg-[#f5f2eb]/95 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -35,11 +35,11 @@ export default function Navigation() {
           <Link href="/" className="flex items-center gap-3 group">
             {/* Brand mark - two diagonal lines forming abstract "A" */}
             <div className="relative w-10 h-10 flex items-center justify-center">
-              <div className="absolute w-[2px] h-8 bg-gradient-to-b from-[#c9a227] to-transparent transform rotate-[20deg]" />
-              <div className="absolute w-[2px] h-8 bg-gradient-to-b from-transparent to-[#c9a227] transform rotate-[20deg] translate-x-3" />
+              <div className="absolute w-[2px] h-8 bg-gradient-to-b from-[#c9a227] to-[#c9a227]/30 transform rotate-[20deg]" />
+              <div className="absolute w-[2px] h-8 bg-gradient-to-b from-[#c9a227]/30 to-[#c9a227] transform rotate-[20deg] translate-x-3" />
             </div>
             <span className="font-display text-2xl tracking-tight">
-              <span className="text-[#f5f2eb]">Apex</span>
+              <span className="text-[#1a1a1a]">Apex</span>
               <span className="text-[#c9a227] italic ml-1">Capital</span>
             </span>
           </Link>
@@ -50,7 +50,7 @@ export default function Navigation() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[#f5f2eb]/70 hover:text-[#c9a227] font-body text-sm tracking-wide transition-colors duration-300 link-hover"
+                className="text-[#4a4a4a] hover:text-[#c9a227] font-body text-sm tracking-wide transition-colors duration-300 link-hover"
               >
                 {link.name}
               </Link>
@@ -60,13 +60,13 @@ export default function Navigation() {
           {/* CTA */}
           <Link
             href="/contact"
-            className="hidden md:flex items-center gap-2 px-6 py-3 border border-[#c9a227]/30 text-[#c9a227] font-body text-sm tracking-wide hover:bg-[#c9a227] hover:text-[#0a0a0a] transition-all duration-300"
+            className="hidden md:flex items-center gap-2 px-6 py-3 bg-[#c9a227] text-[#1a1a1a] font-body text-sm tracking-wide hover:bg-[#e3bc4a] transition-all duration-300"
           >
             Get in Touch
           </Link>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-[#f5f2eb]">
+          <button className="md:hidden text-[#1a1a1a]">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
