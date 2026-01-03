@@ -41,6 +41,12 @@ const featured = [
     description: "Cross-border stablecoin rails",
     year: "2020",
   },
+  {
+    name: "Omer Name",
+    category: "Omer Category",
+    description: "A description for omer category",
+    year: "1997",
+  },
 ];
 
 export default function Portfolio() {
