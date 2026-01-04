@@ -25,6 +25,11 @@ const team = [
     role: "Partner",
     image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=300&q=80",
   },
+  {
+    name: "Omer",
+    role: "Engineer",
+    image: "imagesource.com",
+  },
 ];
 
 export default function Team() {
