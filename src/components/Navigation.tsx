@@ -7,7 +7,8 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Team", href: "/team" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Locations", href: "https://apex-capital.loomii.com/locations" },
 ];
 
 export default function Navigation() {
