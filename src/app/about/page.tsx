@@ -8,8 +8,8 @@ import Footer from "@/components/Footer";
 
 const values = [
   {
-    title: "Commitment",
-    description: "We're the most committed in everything that we do",
+    title: "Conviction",
+    description: "We take concentrated positions and stand by our founders through market cycles.",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
