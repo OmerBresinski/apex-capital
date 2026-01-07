@@ -8,6 +8,7 @@ const navLinks = [
   { name: "Portfolio", href: "/portfolio" },
   { name: "Team", href: "/team" },
   { name: "Contact", href: "/contact" },
+  { name: "Testemonials", href: "/testimonials" },
 ];
 
 export default function Navigation() {
